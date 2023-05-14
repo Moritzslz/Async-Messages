@@ -28,13 +28,11 @@ public final class InboxClient {
     public void droidReadyR2(String droid) {
         HttpEntity<String> request = createHttpEntity(droid);
         ResponseEntity<String> response = rest.postForEntity(POST_REQUEST_URL + R_2, request, String.class);
-        rest.put(POST_REQUEST_URL + R_2, response);
         messages.add(response.getBody());
     }
     public void droidReady3PO(String droid) {
         HttpEntity<String> request = createHttpEntity(droid);
         ResponseEntity<String> response = rest.postForEntity(POST_REQUEST_URL + THREE_PO, request, String.class);
-        rest.put(POST_REQUEST_URL + THREE_PO, response);
         messages.add(response.getBody());
     }
 
