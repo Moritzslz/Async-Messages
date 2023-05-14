@@ -22,7 +22,7 @@ public final class DroidFactoryClient {
 		this.rest = new RestTemplate();
 	}
 
-
+	/*
 	public Droid produceR2() {
 		var request = createHttpEntity(Droids.R2);
 		return rest.postForObject(BASE_URL + R_2, request, Droid.class);
@@ -32,6 +32,8 @@ public final class DroidFactoryClient {
 		var request = createHttpEntity(Droids.THREE_PO);
 		return rest.postForObject(BASE_URL + THREE_PO, request, Droid.class);
 	}
+
+	 */
 
 	//TODO 2.2: remove the old methods for producing droids and implement the async version
 	public void produceR2Async(InboxClient client) {

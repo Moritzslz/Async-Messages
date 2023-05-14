@@ -12,7 +12,7 @@ import java.util.concurrent.CompletableFuture;
 public class DroidFactoryResource {
 
     private final DroidFactory factory = new DroidFactory();
-
+    /*
     @PostMapping("r2")
     public ResponseEntity<Droid> produceR2(@RequestBody Droids droid) {
         return new ResponseEntity<>(factory.produce(droid), HttpStatus.OK);
@@ -22,6 +22,8 @@ public class DroidFactoryResource {
     public ResponseEntity<Droid> produce3PO(@RequestBody Droids droid) {
         return new ResponseEntity<>(factory.produce(droid), HttpStatus.OK);
     }
+
+     */
 
     // TODO 2.1: implement both methods using the async features of the CompletableFuture class and remove the old methods
 
