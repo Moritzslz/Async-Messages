@@ -22,17 +22,17 @@ public class DroidFactoryResource {
     public ResponseEntity<Droid> produce3PO(@RequestBody Droids droid) {
         return new ResponseEntity<>(factory.produce(droid), HttpStatus.OK);
     }
-    // TODO 2.1: implement both methods using the async features of the CompletableFuture class and remove the old methods
 
+    // TODO 2.1: implement both methods using the async features of the CompletableFuture class and remove the old methods
 
     @PostMapping("r2")
     public CompletableFuture<String> produceR2Async(@RequestBody Droids droid) {
-        return null;
+        return  CompletableFuture.supplyAsync(() -> factory.produce(droid).getName());
     }
 
     @PostMapping("3po")
     public CompletableFuture<String> produce3POAsync(@RequestBody Droids droid) {
-        return null;
+        return  CompletableFuture.supplyAsync(() -> factory.produce(droid).getName());
     }
 
 }

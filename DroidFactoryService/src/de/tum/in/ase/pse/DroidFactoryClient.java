@@ -8,6 +8,8 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.concurrent.CompletableFuture;
+
 
 public final class DroidFactoryClient {
 
@@ -33,13 +35,24 @@ public final class DroidFactoryClient {
 
 	//TODO 2.2: remove the old methods for producing droids and implement the async version
 	public void produceR2Async(InboxClient client) {
-
+		var request = createHttpEntity(Droids.R2);
+		CompletableFuture<String> future = new CompletableFuture<>();
+		future.supplyAsync(() -> {
+			Droid r2 = rest.postForObject(BASE_URL + R_2, request, Droid.class);
+			client.droidReadyR2(r2.getName());
+			return r2.getName();
+		});
 	}
 	//TODO 2.2: remove the old methods for producing droids and implement the async version
 	public void produce3POAsync(InboxClient client) {
-
+		var request = createHttpEntity(Droids.R2);
+		CompletableFuture<String> future = new CompletableFuture<>();
+		future.supplyAsync(() -> {
+			Droid ThreePO = rest.postForObject(BASE_URL + R_2, request, Droid.class);
+			client.droidReady3PO(ThreePO.getName());
+			return ThreePO.getName();
+		});
 	}
-
 	private HttpEntity<String> createHttpEntity(Droids droid) {
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.APPLICATION_JSON);

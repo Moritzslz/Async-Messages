@@ -17,11 +17,11 @@ public class BusyOperator {
 
 	//TODO: Uncomment to test your implementation locally
 	public void execute() {
-		/*factoryClient.produceR2Async(inboxClient);
+		factoryClient.produceR2Async(inboxClient);
 		inboxClient.printMessages();
 		factoryClient.produce3POAsync(inboxClient);
 		factoryClient.produceR2Async(inboxClient);
-		inboxClient.printMessages();*/
+		inboxClient.printMessages();
 
 	}
 
