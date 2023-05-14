@@ -41,7 +41,7 @@ public final class DroidFactoryClient {
 		CompletableFuture<String> future = new CompletableFuture<>();
 		future.supplyAsync(() -> {
 			Droid r2 = rest.postForObject(BASE_URL + R_2, request, Droid.class);
-			client.droidReadyR2(r2.getName());
+			client.droidReadyR2(request.getBody());
 			return r2.getName();
 		});
 	}
@@ -51,7 +51,7 @@ public final class DroidFactoryClient {
 		CompletableFuture<String> future = new CompletableFuture<>();
 		future.supplyAsync(() -> {
 			Droid ThreePO = rest.postForObject(BASE_URL + R_2, request, Droid.class);
-			client.droidReady3PO(ThreePO.getName());
+			client.droidReady3PO(request.getBody());
 			return ThreePO.getName();
 		});
 	}
