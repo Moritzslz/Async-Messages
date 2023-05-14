@@ -16,7 +16,6 @@ public final class InboxClient {
     private static final String BASE_URL = "http://localhost:8080/messages/";
     private static final String R_2 = "r2";
     private static final String THREE_PO = "3po";
-    private static final String POST_REQUEST_URL = "http://localhost:8080/inbox/";
     private final List<String> messages = new ArrayList<>();
 
 
@@ -27,12 +26,12 @@ public final class InboxClient {
     // TODO 1: create an http request using the RestTemplate and store the body of the response in the messages attribute
     public void droidReadyR2(String droid) {
         HttpEntity<String> request = createHttpEntity(droid);
-        ResponseEntity<String> response = rest.postForEntity(POST_REQUEST_URL + R_2, request, String.class);
+        ResponseEntity<String> response = rest.postForEntity(BASE_URL + R_2, request, String.class);
         messages.add(response.getBody());
     }
     public void droidReady3PO(String droid) {
         HttpEntity<String> request = createHttpEntity(droid);
-        ResponseEntity<String> response = rest.postForEntity(POST_REQUEST_URL + THREE_PO, request, String.class);
+        ResponseEntity<String> response = rest.postForEntity(BASE_URL + THREE_PO, request, String.class);
         messages.add(response.getBody());
     }
 

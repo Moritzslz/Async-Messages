@@ -10,7 +10,7 @@ import org.springframework.web.client.RestTemplate;
 import java.util.ArrayList;
 import java.util.List;
 @RestController
-@RequestMapping(value = "/inbox/", consumes = "application/json")
+@RequestMapping(value = "/messages/", consumes = "application/json")
 public class InboxResource {
 
     private final DroidFactory factory = new DroidFactory();
